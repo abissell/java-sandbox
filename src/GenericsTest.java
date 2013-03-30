@@ -53,30 +53,30 @@ final class GenericsTest {
 		}
 	}
 
-	void showTypeChecking() {
-		GenericMessage<String> badStringMessage = new IntMessageImpl<>();
-
-		ParentMessageListener<Integer> badIntListener = new StringListenerImpl<>();
-
-		ParentMessageListener<String> stringListener1 = new StringListenerImpl<>();
-		ParentMessageListener<String> stringListener2 = new StringListenerImpl<>();
-		ParentMessageListener<Integer> intListener = new IntListenerImpl<>();
-
-		GenericMessage<String> stringMessage = new GenericMessage<String>() {};
-
-		stringListener1.handleMessage(String.class, stringMessage);
-		stringListener1.handleMessage(Integer.class, stringMessage);
-
-		GenericMessage<Integer> intMessage = new GenericMessage<Integer>() {};
-		intListener.handleMessage(Integer.class, intMessage);
-
-		GenericMessage<String> badIntMessage = new GenericMessage<String>() {};
-		intListener.handleMessage(Integer.class, badIntMessage);
-
-		GenericMessage uncheckedMessage = new IntMessageImpl();
-		intListener.handleMessage(Integer.class, uncheckedMessage);
-
-		ParentMessageListener uncheckedListener = new StringListenerImpl();
-		uncheckedListener.handleMessage(String.class, stringMessage);
-	}
+//	void showTypeChecking() {
+//		GenericMessage<String> badStringMessage = new IntMessageImpl<>();
+//
+//		ParentMessageListener<Integer> badIntListener = new StringListenerImpl<>();
+//
+//		ParentMessageListener<String> stringListener1 = new StringListenerImpl<>();
+//		ParentMessageListener<String> stringListener2 = new StringListenerImpl<>();
+//		ParentMessageListener<Integer> intListener = new IntListenerImpl<>();
+//
+//		GenericMessage<String> stringMessage = new GenericMessage<String>() {};
+//
+//		stringListener1.handleMessage(String.class, stringMessage);
+//		stringListener1.handleMessage(Integer.class, stringMessage);
+//
+//		GenericMessage<Integer> intMessage = new GenericMessage<Integer>() {};
+//		intListener.handleMessage(Integer.class, intMessage);
+//
+//		GenericMessage<String> badIntMessage = new GenericMessage<String>() {};
+//		intListener.handleMessage(Integer.class, badIntMessage);
+//
+//		GenericMessage uncheckedMessage = new IntMessageImpl();
+//		intListener.handleMessage(Integer.class, uncheckedMessage);
+//
+//		ParentMessageListener uncheckedListener = new StringListenerImpl();
+//		uncheckedListener.handleMessage(String.class, stringMessage);
+//	}
 }
