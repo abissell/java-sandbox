@@ -24,11 +24,19 @@ public class TestBuffers {
 		printBufferCharacteristics(buffer);
 		buffer.flip();
 		printBufferCharacteristics(buffer);
+		buffer.get();
+		printBufferCharacteristics(buffer);
 		buffer.flip();
 		printBufferCharacteristics(buffer);
+
+		final char[] wrapped = {'1', '2', '3'};
+		final CharBuffer buffer2 = CharBuffer.wrap(wrapped);
+		printBufferCharacteristics(buffer2);
+		final CharBuffer readOnlyBuffer = buffer2.asReadOnlyBuffer();
+		printBufferCharacteristics(readOnlyBuffer);
 	}
 
 	private void printBufferCharacteristics(final CharBuffer buffer) {
-		System.out.println("position=" + buffer.position() + ", length=" + buffer.length() + ", capacity=" + buffer.capacity());
+		System.out.println("position=" + buffer.position() + ", length=" + buffer.length() + ", remaining=" + buffer.remaining() + ", capacity=" + buffer.capacity());
 	}
 }
