@@ -1,3 +1,4 @@
+import junit.framework.Assert;
 import org.joda.time.Chronology;
 import org.joda.time.MutableDateTime;
 import org.joda.time.chrono.ISOChronology;
@@ -28,5 +29,12 @@ public class TestSimpleTechniques {
 		System.out.println(dateTime);
 		System.out.println(dateTime.getYear() + " " + dateTime.getMonthOfYear() + " " + dateTime.getDayOfMonth() + " " +
 				dateTime.getHourOfDay() + " " + dateTime.getMinuteOfHour() + " " + dateTime.getSecondOfMinute() + " " + dateTime.getMillisOfSecond());
+	}
+
+	@Test
+	public void testExpressionTricks() {
+		int length = 5;
+		int newLength = (length = 0);
+		Assert.assertEquals(newLength, 0);
 	}
 }
